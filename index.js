@@ -1,5 +1,5 @@
 const express = require('express');
-
+const {users} = require('./users.js');
 const app = express();
 const PORT = 3000;
 
@@ -9,6 +9,12 @@ app.get('/', (req, res) => {
 
 app.get('/health', (req, res) => {
     return res.status(200).json({ status: 'OK' });
+})
+
+app.get('/users',(req,res)=> {
+    return res.status(200).json({
+        users
+    })
 })
 
 app.listen(PORT, () => {
